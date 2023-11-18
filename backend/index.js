@@ -21,7 +21,7 @@ CREATE TABLE equipment(
 );
 */
 
-//get all
+//get all equipment in table
 app.get('/equipment', async (req, res) => {
     try {
         const allEquipment = await pool.query("SELECT * FROM equipment")
@@ -32,7 +32,7 @@ app.get('/equipment', async (req, res) => {
     }
 })
 
-//post 
+//create new equipment entry
 app.post('/equipment', async (req, res) => {
     try {
         const {name, type, description, picture_url, brand, model} = req.body
@@ -58,7 +58,7 @@ app.post('/equipment', async (req, res) => {
 //get specific equipment
 app.get('/equipment/:id', async (req, res) => {
     try {
-        const {id} = req.params.id
+        const {id} = req.params
 
         const equipment = await pool.query("SELECT * FROM equipment WHERE id = $1", [id])
 
@@ -68,10 +68,20 @@ app.get('/equipment/:id', async (req, res) => {
     }
 })
 
-//delete
+app.get('/equipment/type/guitar', async (req, res) => {
+    try {
+        const guitars = await pool.query("SELECT * FROM equipment WHERE type ILIKE 'guitar'")
+
+        res.json(guitars.rows)
+    } catch (err) {
+        console.log(err)
+    }
+})
+
+//delete specific equipment
 app.delete('/equipment/:id', async (req, res) => {
     try {
-        const {id} = req.params.id
+        const {id} = req.params
 
         const deletedEquipment = await pool.query("DELETE FROM equipment WHERE id = $1", [id])
 
@@ -81,9 +91,7 @@ app.delete('/equipment/:id', async (req, res) => {
     }
 })
 
-
-
-const PORT = 3000
+const PORT = process.env.PORT
 app.listen(PORT, () => {
     console.log(`server is listening on port ${PORT}`)
 })
