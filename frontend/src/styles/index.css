@@ -1,6 +1,6 @@
 @import url('https://fonts.cdnfonts.com/css/sf-pro-display');
-                
+@import '@fortawesome/fontawesome-svg-core/styles.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-

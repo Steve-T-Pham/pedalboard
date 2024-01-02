@@ -1,29 +1,29 @@
 import React from 'react'
 import SearchCard from '../components/SearchCard'
+import Filter from '../components/Filter'
+import { Link } from 'react-router-dom'
 
 const Search: React.FC = () => {
     return(
-            <div className="justify-center align-middle items-center flex flex-col mt-20">
+            <div className="container mx-auto flex flex-col mt-5">
+
+
+            {/* turn this into its own reusable navigation component for current pages, also make the placeholder float up to top to match filter? */}
+            <div className="text-sm drop-shadow-xs"> 
+                <Link to="/" className="text-gray-400 hover:underline">Home</Link>  
+                &nbsp;&gt;&nbsp;Search 
+            </div>
+            
+            <div className="mt-3 mb-8 text-lg">Type the name, brand, or model of the guitar equipment you are searching for into the search bar.</div>
+
                 {/* container for left (filter applicators) and right ui (equipment)*/}
                 <div className="container flex flex-row space-x-10">
 
-                    <div className="container border border-gray-300 rounded-md w-1/3 h-fit">
+                <Filter />
+                
+                <div className="container">
 
-                        <div className="bg-white text-gray-600 text-2xl -mt-6 ml-5 w-fit p-2">
-                            Filter
-                        </div>
-
-                        <div className="ml-6 mb-5 text-md">
-                            <div>Type</div>
-                            <div>Brand</div>
-                            <div>Price Range</div>
-                            <div>Rating</div>
-                        </div>
-                    </div>
-
-                    <div className="container">
-
-                        <input autoFocus className="mb-5 p-2 w-full rounded-lg border-gray-300 border py-2 px"  placeholder="Type here.."/>
+                    <input autoFocus className="mb-5 p-2 w-full rounded-lg border-gray-300 border py-2 px-4 drop-shadow-xs"  placeholder="Type here.."/>
 
                     <div className="container grid grid-cols-4 gap-y-8">
                         <SearchCard 

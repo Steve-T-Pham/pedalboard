@@ -2,6 +2,7 @@ import '../styles/index.css'
 import '../services/api'
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './Navbar'
+import Footer from './Footer'
 import Home from '../pages/Home'
 import Search from '../pages/Search'
 import Equipment from '../pages/Equipment'
@@ -17,7 +18,8 @@ const App: React.FC = () => {
         <Route path="/search" element={<Search />} />
         <Route path="/equipment/:type/:id" element={<Equipment />} />
       </Routes>
-      </div>
+      <Footer />
+    </div>
     </>
   )
 }
