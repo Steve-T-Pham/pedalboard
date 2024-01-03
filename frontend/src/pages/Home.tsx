@@ -9,17 +9,20 @@ const Home: React.FC = () => {
 
                 {/* initial banner */}
                 <div className="container flex flex-row my-8 justify-center align-middle items-center space-x-5">
-                    <div>Image goes here</div>
+
+                    <div>
+                        <img src="https://blush.design/api/download?shareUri=cS3vbnf1rzd9_H-H&c=Skin_0%7Ef7d3bb-0.2%7Ec68e80&w=800&h=800&fm=png"/>
+                    </div>
+
                     <div className="flex flex-col">
-                        <div className="text-2xl font-bold my-2">
-                            Our database offers catalogues for all of your 
-                            <br></br>guitar needs
+                        <div className="text-2xl font-bold my-2 w-4/5">
+                            Our database offers catalogues for all of your guitar needs
                         </div>
                         <div className="text-sm text-gray-600 mb-5">
                             Find the equipment you're looking by filtering through top name-brands, 
                             <br></br>prices, type of equipment, and even user ratings.
                         </div>
-                        <Link to="/search">
+                        <Link to="/search" className="w-fit">
                             <button className="rounded bg-blue-600 py-2 px-4 text-white w-fit hover:bg-blue-700">
                                 See Equipment →
                             </button>
