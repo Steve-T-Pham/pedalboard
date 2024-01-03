@@ -15,7 +15,7 @@ const Home: React.FC = () => {
                     </div>
 
                     <div className="flex flex-col">
-                        <div className="text-2xl font-bold my-2 w-4/5">
+                        <div className="text-3xl font-bold my-2 w-4/5">
                             Our database offers catalogues for all of your guitar needs
                         </div>
                         <div className="text-sm text-gray-600 mb-5">

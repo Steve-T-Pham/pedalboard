@@ -6,6 +6,7 @@ import Footer from './Footer'
 import Home from '../pages/Home'
 import Search from '../pages/Search'
 import Equipment from '../pages/Equipment'
+import NotFound from '../pages/NotFound'
 
 const App: React.FC = () => {
 
@@ -17,6 +18,7 @@ const App: React.FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />
         <Route path="/equipment/:type/:id" element={<Equipment />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </div>

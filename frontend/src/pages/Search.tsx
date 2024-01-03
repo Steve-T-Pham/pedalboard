@@ -23,9 +23,9 @@ const Search: React.FC = () => {
                 
                 <div className="container">
 
-                    <input autoFocus className="mb-5 p-2 w-full rounded-lg border-gray-300 border py-2 px-4 drop-shadow-xs"  placeholder="Type here.."/>
+                    <input autoFocus className="mb-5 p-2 w-full rounded-md shadow-sm py-2 px-4 drop-shadow-sm focus:border-gray-300"  placeholder="Type here.."/>
 
-                    <div className="container grid grid-cols-4 gap-y-8">
+                    <div className="container grid grid-cols-4 gap-y-8 mx-auto">
                         <SearchCard 
                             name="Fender Stratocaster" 
                             type="Electric Guitar" 
