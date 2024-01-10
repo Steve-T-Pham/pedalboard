@@ -4,7 +4,6 @@ import FilterDropdown from './FilterDropdown'
 type Filters = {
     type: boolean;
     brand: boolean;
-    price: boolean;
     rating: boolean;
     [key: string]: boolean;
 }
@@ -13,7 +12,6 @@ const Filter: React.FC = () => {
     const [filters, setFilters] = useState<Filters>({
         type: false,
         brand: false,
-        price: false,
         rating: false
     });
 
@@ -36,7 +34,7 @@ const Filter: React.FC = () => {
 
 
             {/* filter tags container */}
-            <div className="mx-6 mb-5 text-md drop-shadow-xs">
+            <div className="mx-6 mb-5 text-md drop-shadow-sm">
                 <div className="hover:cursor-pointer" onClick={() => handleClickExpand('type')}>
                     Type 
                     <span className="opacity-50 float-right text-right">{
@@ -53,8 +51,6 @@ const Filter: React.FC = () => {
                     </span></div>
 
                 {!filters.brand && <FilterDropdown tags={["Fender", "Squier", "Gibson", "Marshall", "Ibanez", "PRS", "Epiphone", "Gretsch", "Unlisted"]} />}
-
-                <div>Price Range</div>
 
                 <div className="hover:cursor-pointer" onClick={() => handleClickExpand('rating')}>
                     Rating

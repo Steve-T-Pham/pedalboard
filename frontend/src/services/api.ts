@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios'
 
-const BASE_URL = 'https://localhost:3000/equipment'
+const BASE_URL = 'http://localhost:3000/equipment'
 
 type Equipment = {
     id: number
@@ -12,10 +12,20 @@ type Equipment = {
     model?: string
 }
 
-const getAllEquipment = async (): Promise<Equipment[]> => {
+const getAllEquipment = async (): Promise<AxiosResponse<Equipment[]>> => {
     try {
-        const response: AxiosResponse<Equipment[]> = await axios.get(BASE_URL)
-        return response.data
+        const response = await axios.get(BASE_URL)
+        return response
+    } catch (err) {
+        console.log(err)
+        throw err
+    }
+}
+
+const getItem = async (id: number): Promise<AxiosResponse<Equipment>> => {
+    try {
+        const response = await axios.get(`${BASE_URL}/${id}`) 
+        return response
     } catch (err) {
         console.log(err)
         throw err
@@ -52,4 +62,4 @@ const deleteEquipment = async (id: number): Promise<Equipment> => {
     }
 }
 
-export default { getAllEquipment, getAllGuitars, createEquipment, deleteEquipment }
+export default { getAllEquipment, getAllGuitars, createEquipment, deleteEquipment, getItem }

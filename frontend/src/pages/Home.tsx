@@ -31,7 +31,7 @@ const Home: React.FC = () => {
                 </div>
 
                 {/* brands go here? */}
-                <div className="container my-8 bg-gray-100 w-screen p-5 flex flex-col justify-center align-middle items-center " >
+                <div className="container my-8 bg-gray-200 w-screen p-5 flex flex-col justify-center align-middle items-center " >
                     <div className="text-xl font-light py-5">
                         Check equipment from major brands here:
                     </div>
