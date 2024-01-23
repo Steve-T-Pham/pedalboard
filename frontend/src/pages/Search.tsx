@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react'
 import SearchCard from '../components/SearchCard'
 import Filter from '../components/Filter'
 import { Link } from 'react-router-dom'
@@ -6,6 +7,8 @@ import { useQuery } from 'react-query'
 import api from '../services/api'
 
 const Search: React.FC = () => {
+
+    const [search, setSearch] = useState('');
 
     const {data: equipment} = useQuery('equipment', async () => {
         const response = await api.getAllEquipment();
@@ -28,18 +31,38 @@ const Search: React.FC = () => {
 
                 {/* container for left (filter applicators) and right ui (equipment)*/}
                 <div className="container flex flex-row space-x-10">
+                    
+                    <div className="flex flex-col w-1/3">
+                        <input autoFocus 
+                                className="mb-5 p-2 w-full border border-gray-300 rounded-md py-2 px-4 "  
+                                placeholder="Type here.." 
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                            />
 
-                    <Filter />
+                        <Filter />
+                    </div>
                         
                     <div className="container">
 
-                        <input autoFocus className="mb-5 p-2 w-full rounded-md shadow-sm py-2 px-4 drop-shadow-sm focus:border-gray-300"  placeholder="Type here.."/>
+
 
                         <div className="container grid grid-cols-4 gap-y-8 mx-auto">
 
-                            {equipment?.map(item => 
+                            {!search ? equipment?.map(item => 
                                 {return <SearchCard 
                                             key={item.id} 
+                                            id={item.id}
+                                            name={item.name} 
+                                            type={item.type} 
+                                            desc={item.description} 
+                                            photoURL={item.picture_url} 
+                                            brand={item.brand} 
+                                            model={item.model}/>})
+                                            : 
+                            equipment?.filter(item => 
+                                item.name.toLowerCase().includes(search.toLowerCase())).map(item => 
+                                {return <SearchCard key={item.id} 
                                             id={item.id}
                                             name={item.name} 
                                             type={item.type} 

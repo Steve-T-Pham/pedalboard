@@ -26,7 +26,7 @@ const Filter: React.FC = () => {
 
     return( 
         
-        <div className="container border border-gray-300 rounded-md w-1/3 h-fit ease-in-out duration-300">
+        <div className="container mt-5 border border-gray-300 rounded-md h-fit ease-in-out duration-300">
 
             <div className="bg-gray-50 text-gray-600 text-2xl -mt-6 ml-5 w-fit p-2">
                 Filter

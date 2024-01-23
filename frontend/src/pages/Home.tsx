@@ -15,15 +15,15 @@ const Home: React.FC = () => {
                     </div>
 
                     <div className="flex flex-col">
-                        <div className="text-3xl font-bold my-2 w-4/5">
+                        <div className="text-4xl font-bold my-2 w-4/5">
                             Our database offers catalogues for all of your guitar needs
                         </div>
-                        <div className="text-sm text-gray-600 mb-5">
+                        <div className="text-lg text-gray-600 mb-5">
                             Find the equipment you're looking by filtering through top name-brands, 
                             <br></br>prices, type of equipment, and even user ratings.
                         </div>
                         <Link to="/search" className="w-fit">
-                            <button className="rounded bg-blue-600 py-2 px-4 text-white w-fit hover:bg-blue-700">
+                            <button className="rounded bg-blue-600 py-2 px-4 text-white w-fit hover:bg-blue-800">
                                 See Equipment →
                             </button>
                         </Link>

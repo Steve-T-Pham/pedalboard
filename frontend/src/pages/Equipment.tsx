@@ -24,28 +24,32 @@ const Equipment: React.FC = () => {
   return(
     <div className="container mx-auto flex flex-col mt-5">
 
-          <div className="text-sm drop-shadow-xs"> 
-                    <Link to="/" className="text-gray-400 hover:underline">Home</Link>  
-                    &nbsp;&gt;&nbsp;
-                    <Link to="/search" className="text-gray-400 hover:underline">Search</Link> 
-                    &nbsp;&gt;&nbsp;{equipment?.name}
-          </div>
+      {/* navigation pages*/}
+        <div className="text-sm drop-shadow-xs"> 
+          <Link to="/" className="text-gray-400 hover:underline">Home</Link>  
+           &nbsp;&gt;&nbsp;
+          <Link to="/search" className="text-gray-400 hover:underline">Search</Link> 
+          &nbsp;&gt;&nbsp;{equipment?.name}
+        </div>
 
-          <div className="mt-5" >
-              <img src={equipment?.picture_url} className="h-1/4 w-1/4"/>
-              {/* image on left, title on right, and stuff underneath, maybe more features to think of later?
-                * right now might have  */}
-              <div className="container flex flex-col">
-                <div className="font-bold">
-                  {equipment?.name}
+        <div className="container flex flex-row mt-5">
+          {/* img container */}
+          <div className="h-1/3 w-2/4 rounded mr-5">
+                <img src={equipment?.picture_url} className="object-cover rounded"/>
+          </div>
+                {/* image on left, title on right, and stuff underneath, maybe more features to think of later?
+                  * right now might have  */}
+                <div className="container flex flex-col ml-5">
+                  <div className="font-bold text-4xl">
+                    {equipment?.name}
+                  </div>
+                  <div className="my-1">
+                    {equipment?.type}
+                  </div>
+                  <div className="text-xl">
+                    {equipment?.description}
+                  </div>
                 </div>
-                <div>
-                  {equipment?.type}
-                </div>
-                <div className="text-sm">
-                  {equipment?.description}
-                </div>
-              </div>
             </div>
         </div>
     );
